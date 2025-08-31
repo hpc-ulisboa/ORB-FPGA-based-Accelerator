@@ -1,15 +1,48 @@
 # ORB-Accelerator
-Zybo Z7-20 ORB Accelerator
+Hardware-accelerated ORB (Oriented FAST and Rotated BRIEF) feature detection implementation for the Zybo Z7-20 FPGA platform.
 
-# Generate Demo Vivado project
+## Overview
+This project provides a complete FPGA-based ORB feature detection accelerator, including:
+- HDL implementation of FAST corner detection
+- BRIEF descriptor computation hardware
+- DMA interface for high-speed data transfer
+- PetaLinux software integration
+- Testing and demonstration code
 
-The following command generates a Vivado (v2020.2) project that implements the ORB Accelerator on the Zybo Z7-20. This project can be used with the sample code in this [repository](https://github.com/hpc-ulisboa/ORB-ROS-Petalinux) for testing purposes.
+## Generate Demo Vivado Project
 
-```
-# Generates the example project under the directory orb_acc_demo
+The following command generates a Vivado 2020.2 project that implements the ORB Accelerator on the Zybo Z7-20. **Note: Only Vivado 2020.2 is guaranteed to work with this project.**
+
+```bash
+# Generates the Vivado project
 ./create_project.sh
 ```
 
-# Testing the accelerator
+## Project Structure
 
-We provide software to test our ORB accelerator. This testing program loads a provided image (640x480) to the FPGA fabric to stream the pixels to the accelerator. Refer to the README file included in the `src/` directory.
+- `hdl/` - Hardware description files (VHDL/Verilog)
+  - `FAST/` - FAST corner detection implementation
+  - `BRIEF/` - BRIEF descriptor computation
+  - `ORB/` - Top-level ORB accelerator integration
+- `src/` - Software test code and PetaLinux integration
+- `create_project.sh` - Vivado project generation script
+- `ORB_sample_bd.tcl` - Block design TCL script
+
+## Testing the Accelerator
+
+We provide complete software to test the ORB accelerator. The testing program:
+- Loads user-provided images (640x480) to the FPGA fabric
+- Streams pixels to the hardware accelerator
+- Extracts and displays detected features
+- Exports annotated images with detected features
+
+**Important**: Processing includes CPU-based preprocessing overhead. Direct hardware streaming provides significantly better performance.
+
+For detailed testing instructions, refer to the README file in the `src/` directory.
+
+## Requirements
+
+- **FPGA**: Zybo Z7-20 development board
+- **Software**: Vivado 2020.2 (other versions not guaranteed to work)
+- **OS**: PetaLinux with OpenCV library
+- **Images**: 640x480 pixel test images (user-provided)
