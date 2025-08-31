@@ -46,3 +46,19 @@ For detailed testing instructions, refer to the README file in the `src/` direct
 - **Software**: Vivado 2020.2 (other versions not guaranteed to work)
 - **OS**: PetaLinux with OpenCV library
 - **Images**: 640x480 pixel test images (user-provided)
+
+## Citation
+
+If you use this work in your research, please cite our paper:
+
+```bibtex
+@article{costa2025realtime,
+  title={Real-Time ORB Accelerator for Embedded FPGA-Based SoCs With ROS Integration},
+  author={A. Costa and J. D. Lopes and P. Tom{\'a}s and N. Roma and N. Neves},
+  journal={IEEE Transactions on Very Large Scale Integration (VLSI) Systems},
+  pages={1--10},
+  year={2025},
+  doi={10.1109/TVLSI.2025.3601802},
+  issn={1557-9999}
+}
+```
