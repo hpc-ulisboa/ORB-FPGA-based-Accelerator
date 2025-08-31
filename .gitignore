@@ -1,0 +1,8 @@
+#Vivado products
+
+hdl/BRIEF/generate_brief_rom/output_extras
+orb_acc_demo
+NA
+*.jou
+*.log
+*.str
